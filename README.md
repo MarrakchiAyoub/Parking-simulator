@@ -1,2 +1,2 @@
 # Parking-simulator
-Simulation a parking using Semaphores
+Simulating a parking using Semaphores and Java Swing
