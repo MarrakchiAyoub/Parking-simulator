@@ -71,6 +71,7 @@ class ImagePanel extends JPanel{
     private Parking parking;
     private JTextField t ;
     private JButton b ;
+    private JLabel message = new JLabel();
     public ImagePanel(Parking p) {
         super();
         parking=p;
@@ -83,6 +84,8 @@ class ImagePanel extends JPanel{
         this.initComponents();
     }
     private void initComponents(){
+        message.setBounds(340, 412, 200, 20);
+        message.setForeground(Color.red);
         b = new JButton("démarrer");
         b.setBounds(460, 385, 100, 30);
         t = new JTextField();
@@ -92,11 +95,18 @@ class ImagePanel extends JPanel{
         t.setFont(t.getFont().deriveFont(20f));
         t.setText("10");
         b.addActionListener((ActionEvent e) -> {
-           int k = Integer.decode(t.getText());
+            message.setText("");
+            int k=0;
+            try {
+                k = Integer.decode(t.getText());
+            } catch (NumberFormatException ex) {
+                message.setText("Veulliez entrer un numero entier!");
+            }
             for(int i=0; i<k; i++){
                 parking.demarer();
             }
         });
+        this.add(message);
         this.add(b);
         this.add(t);
         
