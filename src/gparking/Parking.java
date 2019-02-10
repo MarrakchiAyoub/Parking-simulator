@@ -84,12 +84,14 @@ class ImagePanel extends JPanel{
         this.initComponents();
     }
     private void initComponents(){
-        message.setBounds(340, 412, 200, 20);
+        JLabel l = new JLabel("Nombre de voitures :");
+        l.setBounds(275, 388, 150, 20);
+        message.setBounds(335, 412, 200, 20);
         message.setForeground(Color.red);
         b = new JButton("démarrer");
-        b.setBounds(460, 385, 100, 30);
+        b.setBounds(465, 385, 100, 30);
         t = new JTextField();
-        t.setBounds(330, 385, 100, 30);
+        t.setBounds(400, 385, 50, 30);
         t.setBackground(new Color(166, 164, 249));
         t.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         t.setFont(t.getFont().deriveFont(20f));
@@ -107,6 +109,7 @@ class ImagePanel extends JPanel{
             }
         });
         this.add(message);
+        this.add(l);
         this.add(b);
         this.add(t);
         
